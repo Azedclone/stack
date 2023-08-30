@@ -1,20 +1,14 @@
 import "@/app/globals.css";
-import { ThemeProvider } from "@/components/shared";
-import { cn } from "@/lib/utils";
-import { ClerkProvider } from "@clerk/nextjs";
-import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
+
+import { ClerkProvider } from "@clerk/nextjs";
+import { ThemeProvider } from "@/components/shared";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Home page",
-  description: "Author: TLong",
-};
-
-export default function RootLayout({
+export default function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -22,7 +16,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={cn(openSans.className, "bg-white dark:bg-gray-900")}>
+        <body
+          className={`${openSans.className} h-screen flex justify-center items-center`}
+        >
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
