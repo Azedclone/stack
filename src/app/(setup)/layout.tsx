@@ -10,11 +10,11 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Home page",
+  title: "Setup",
   description: "Author: TLong",
 };
 
-export default function RootLayout({
+export default function SetupLayout({
   children,
 }: {
   children: React.ReactNode;
