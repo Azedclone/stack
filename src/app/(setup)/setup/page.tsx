@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { initProfile } from "@/lib/init-profile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
+import { InitModal } from "@/components/modals/";
 
 export const metadata: Metadata = {
   title: "Setup",
@@ -23,7 +24,7 @@ const SetupPage = async () => {
 
   if (server) redirect(`/servers/${server.id}`);
 
-  return <p>Check</p>;
+  return <InitModal />;
 };
 
 export default SetupPage;
