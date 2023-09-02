@@ -1,4 +1,5 @@
 import "@/app/globals.css";
+import { NavigationSidebar } from "@/components/navigation";
 import { ThemeProvider } from "@/components/shared";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   description: "Author: TLong",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -29,7 +30,10 @@ export default function RootLayout({
             enableSystem
             storageKey="stack-theme"
           >
-            {children}
+            <div className="hidden md:flex flex-col h-full w-[72px] z-30 fixed inset-y-0">
+              <NavigationSidebar />
+            </div>
+            <main className="md:pl-[72px] h-full">{children}</main>
           </ThemeProvider>
         </body>
       </html>
